@@ -11,4 +11,4 @@ receivers:
         auth_username: '.ajce.in'
         auth_password: ""
         from: '.ajce.in'
-        to: '@gmail.com'
+        to: ''
