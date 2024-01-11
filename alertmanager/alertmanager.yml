@@ -8,7 +8,7 @@ receivers:
   - name: 'mail'
     email_configs:
       - smarthost: 'smtp.gmail.com:465'
-        auth_username: 'sajo2023b@mca.ajce.in'
-        auth_password: "Sajo@000"
-        from: 'sajo2023b@mca.ajce.in'
-        to: 'saajosaam@gmail.com'
+        auth_username: '.ajce.in'
+        auth_password: ""
+        from: '.ajce.in'
+        to: '@gmail.com'
