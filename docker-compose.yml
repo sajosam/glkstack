@@ -120,6 +120,22 @@ services:
     restart: always
     networks:
       - monitoring.network
+  loki:
+    container_name: monitoring.loki
+    image: grafana/loki:${LOKI_VERSION}
+    expose:
+      - 3100
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./loki/loki-config.yml:/etc/loki-config.yml
+      - loki-data:/tmp/loki/
+    command: -config.file=/etc/loki-config.yml
+    restart: unless-stopped
+    networks:
+      - monitoring.network
+    labels:
+      org.label-schema.group: "monitoring"
 
 networks:
   monitoring.network:
