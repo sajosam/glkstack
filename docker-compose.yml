@@ -137,6 +137,25 @@ services:
       - monitoring.network
     labels:
       org.label-schema.group: "monitoring"
+  cadvisor:
+    image: gcr.io/google-containers/cadvisor:${CADVISER_VERSION}
+    container_name: monitoring.cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+    restart: unless-stopped
+    command:
+      - '--storage_duration=15s'
+    expose:
+      - 8080
+    ports:
+      - "8080:8080"
+    networks:
+      - monitoring.network
+    labels:
+      org.label-schema.group: "monitoring"
 
 networks:
   monitoring.network:
